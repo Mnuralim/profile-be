@@ -49,7 +49,7 @@ export const deleteAchiev = async (req, res) => {
 export const getDataAchiev = async (req, res) => {
   try {
     const data = await Achiev.find();
-    res.status(200).json({ data });
+    res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ message: error });
   }

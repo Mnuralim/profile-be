@@ -3,7 +3,7 @@ import Study from "../models/StudyModel.js";
 export const createStudy = async (req, res) => {
   const { title, year } = req.body;
   const file = req.file;
-  const url = file.path;
+  const url = file?.path;
 
   try {
     const data = await Study.create({
@@ -21,7 +21,7 @@ export const updateStudy = async (req, res) => {
   const { id } = req.params;
   const { title, year } = req.body;
   const file = req.file;
-  const url = file.path;
+  const url = file?.path;
 
   try {
     const data = await Study.findByIdAndUpdate(

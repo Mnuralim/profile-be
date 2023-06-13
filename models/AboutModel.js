@@ -24,7 +24,7 @@ const AboutModel = new mongoose.Schema(
     fourthchild: {
       type: String,
     },
-    birth: {
+    birt: {
       type: String,
     },
     images: {

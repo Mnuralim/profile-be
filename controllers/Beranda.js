@@ -23,7 +23,7 @@ export const UpdateBeranda = async (req, res) => {
   const { id } = req.params;
   const { name, position, description } = req.body;
   const file = req.file;
-  const url = file.path;
+  const url = file?.path;
   try {
     const data = await Beranda.findByIdAndUpdate(
       { _id: id },

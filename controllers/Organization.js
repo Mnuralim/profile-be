@@ -21,7 +21,7 @@ export const updateOrganization = async (req, res) => {
   const { id } = req.params;
   const { title, year } = req.body;
   const file = req.file;
-  const url = file.path;
+  const url = file?.path;
 
   try {
     const data = await Organization.findByIdAndUpdate(

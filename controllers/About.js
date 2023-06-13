@@ -36,7 +36,7 @@ export const UpdateAbout = async (req, res) => {
         secondchild: secondchild,
         thirdchild: thirdchild,
         fourthchild: fourthchild,
-        birt: birth,
+        birth: birth,
         images: url,
       },
       {

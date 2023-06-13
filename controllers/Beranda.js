@@ -38,7 +38,7 @@ export const UpdateBeranda = async (req, res) => {
       }
     );
 
-    res.status(200).json({ data });
+    res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ message: error });
   }
@@ -47,7 +47,7 @@ export const UpdateBeranda = async (req, res) => {
 export const getDataBeranda = async (req, res) => {
   try {
     const data = await Beranda.find();
-    res.status(200).json({ data });
+    res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ message: error });
   }

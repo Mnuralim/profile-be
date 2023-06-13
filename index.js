@@ -19,11 +19,7 @@ const app = express();
 db();
 
 app.use(morgan("dev"));
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+app.use(cors());
 app.use(express.json());
 app.use(AspirasiRouter);
 app.use(BerandaRouter);

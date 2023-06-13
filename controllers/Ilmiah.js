@@ -59,7 +59,7 @@ export const getSingleDataIlmiah = async (req, res) => {
   const { id } = req.params;
   try {
     const data = await Ilmiah.findById({ _id: id });
-    res.status(200).json({ data });
+    res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ message: error });
   }

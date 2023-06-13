@@ -55,7 +55,7 @@ export const deleteOrganization = async (req, res) => {
 export const getDataOrganization = async (req, res) => {
   try {
     const data = await Organization.find();
-    res.status(200).json({ data });
+    res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ message: error });
   }
@@ -65,7 +65,7 @@ export const getSingleDataOrganization = async (req, res) => {
   const { id } = req.params;
   try {
     const data = await Organization.findById({ _id: id });
-    res.status(200).json({ data });
+    res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ message: error });
   }

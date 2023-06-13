@@ -55,7 +55,7 @@ export const deleteWorkHistory = async (req, res) => {
 export const getDataWorkHistory = async (req, res) => {
   try {
     const data = await WorkHistory.find();
-    res.status(200).json({ data });
+    res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ message: error });
   }
@@ -65,7 +65,7 @@ export const getSingleDataWorkHistory = async (req, res) => {
   const { id } = req.params;
   try {
     const data = await WorkHistory.findById({ _id: id });
-    res.status(200).json({ data });
+    res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ message: error });
   }

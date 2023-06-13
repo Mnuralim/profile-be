@@ -15,7 +15,7 @@ export const CreateAbout = async (req, res) => {
       birt: birth,
       images: url,
     });
-    res.status(200).json({ data });
+    res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ message: error });
   }
@@ -25,7 +25,7 @@ export const UpdateAbout = async (req, res) => {
   const { id } = req.params;
   const { name, wifeName, firstchild, secondchild, thirdchild, fourthchild, birth } = req.body;
   const file = req.file;
-  const url = file.path;
+  const url = file?.path;
   try {
     const data = await About.findByIdAndUpdate(
       { _id: id },
@@ -52,7 +52,7 @@ export const UpdateAbout = async (req, res) => {
 export const GetDataAbout = async (req, res) => {
   try {
     const data = await About.find();
-    res.status(200).json({ data });
+    res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ message: error });
   }

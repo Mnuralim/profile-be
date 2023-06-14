@@ -11,7 +11,8 @@ import StudyRouter from "./routes/StudyRoute.js";
 import IlmiahRouter from "./routes/IlmiahRoute.js";
 import AchievRouter from "./routes/AchievRoute.js";
 import NarasiRouter from "./routes/NarasiRoute.js";
-import GalleryRoute from "./routes/GalleryRoute.js";
+import GalleryPhotoRoute from "./routes/GalleryPhotoRoute.js";
+import GalleryVideoRoute from "./routes/GalleryVideoRoute.js";
 import morgan from "morgan";
 
 dotenv.config();
@@ -31,5 +32,6 @@ app.use(OrganizationRouter);
 app.use(IlmiahRouter);
 app.use(AchievRouter);
 app.use(NarasiRouter);
-app.use(GalleryRoute);
+app.use(GalleryVideoRoute);
+app.use(GalleryPhotoRoute);
 app.listen(process.env.PORT, () => console.log("server is running..."));

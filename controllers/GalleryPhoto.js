@@ -1,4 +1,4 @@
-import Gallery from "../models/GalleryModel.js";
+import Gallery from "../models/GalleryPhotoModel.js";
 
 export const createGallery = async (req, res) => {
   const { title } = req.body;

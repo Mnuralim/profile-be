@@ -19,6 +19,16 @@ export const getAspirasiData = async (req, res) => {
     const data = await Aspirasi.find().sort({ address: -1 });
     res.status(200).json(data);
   } catch (error) {
-    res.status(500).json(error.mesaage);
+    res.status(500).json(error.message);
+  }
+};
+
+export const deleteAspirasi = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const data = await Aspirasi.findByIdAndDelete({ _id: id });
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).json(error.message);
   }
 };

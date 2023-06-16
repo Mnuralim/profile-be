@@ -13,6 +13,7 @@ import AchievRouter from "./routes/AchievRoute.js";
 import NarasiRouter from "./routes/NarasiRoute.js";
 import GalleryPhotoRoute from "./routes/GalleryPhotoRoute.js";
 import GalleryVideoRoute from "./routes/GalleryVideoRoute.js";
+import BookRouter from "./routes/BookRoute.js";
 import morgan from "morgan";
 
 dotenv.config();
@@ -28,10 +29,12 @@ app.use(BerandaRouter);
 app.use(AboutRouter);
 app.use(WorkHistoryRouter);
 app.use(StudyRouter);
-app.use(OrganizationRouter);
+app.use(BookRouter);
 app.use(IlmiahRouter);
 app.use(AchievRouter);
 app.use(NarasiRouter);
 app.use(GalleryVideoRoute);
 app.use(GalleryPhotoRoute);
+app.use(OrganizationRouter);
+
 app.listen(process.env.PORT, () => console.log("server is running..."));

@@ -15,6 +15,7 @@ import GalleryPhotoRoute from "./routes/GalleryPhotoRoute.js";
 import GalleryVideoRoute from "./routes/GalleryVideoRoute.js";
 import BookRouter from "./routes/BookRoute.js";
 import StatsRouter from "./routes/StatisticRoute.js";
+import CommunityRouter from "./routes/CommunityRoute.js";
 import morgan from "morgan";
 
 dotenv.config();
@@ -38,5 +39,6 @@ app.use(GalleryVideoRoute);
 app.use(GalleryPhotoRoute);
 app.use(OrganizationRouter);
 app.use(StatsRouter);
+app.use(CommunityRouter);
 
 app.listen(process.env.PORT, () => console.log("server is running..."));

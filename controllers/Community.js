@@ -1,12 +1,12 @@
 import Community from "../models/CommunityModel.js";
 
 export const postCommunity = async (req, res) => {
-  const { name, address, message } = req.body;
+  const { name, address, mobile } = req.body;
   try {
     const data = await Community.create({
       name: name,
       address: address,
-      message: message,
+      mobile: mobile,
     });
     res.status(200).json({ message: "Sukses", data });
   } catch (error) {

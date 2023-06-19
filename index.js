@@ -17,6 +17,7 @@ import BookRouter from "./routes/BookRoute.js";
 import StatsRouter from "./routes/StatisticRoute.js";
 import CommunityRouter from "./routes/CommunityRoute.js";
 import AdminRouter from "./routes/AdminRoute.js";
+import LoginRouter from "./routes/LoginRoute.js";
 import morgan from "morgan";
 
 dotenv.config();
@@ -42,5 +43,6 @@ app.use(OrganizationRouter);
 app.use(StatsRouter);
 app.use(CommunityRouter);
 app.use(AdminRouter);
+app.use(LoginRouter);
 
 app.listen(process.env.PORT, () => console.log("server is running..."));

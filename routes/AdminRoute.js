@@ -9,6 +9,6 @@ router.get("/get-admin", getDataAdmin);
 router.get("/get-admin/:id", getSingleDataAdmin);
 router.delete("/delete-admin/:id", deleteAdmin);
 
-router.post("/login", Login);
+router.post("/admin-login", Login);
 
 export default router;

@@ -100,7 +100,7 @@ export const Login = async (req, res) => {
       }
     );
 
-    res.cookie("refreshtoken", refreshtoken, {
+    res.cookie("refreshToken", refreshtoken, {
       maxAge: 24 * 60 * 60 * 1000,
       httpOnly: true,
     });

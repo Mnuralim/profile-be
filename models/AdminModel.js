@@ -3,6 +3,10 @@ import mongoose from "mongoose";
 // Declare the Schema of the Mongo model
 const AdminModel = new mongoose.Schema(
   {
+    email: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,

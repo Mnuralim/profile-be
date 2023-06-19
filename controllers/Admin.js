@@ -3,12 +3,13 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 export const createAdmin = async (req, res) => {
-  const { name, password, username } = req.body;
+  const { name, password, username, email } = req.body;
   const salt = await bcrypt.genSalt();
   const hashPassword = await bcrypt.hash(password, salt);
 
   try {
     const data = await Admin.create({
+      email: email,
       name: name,
       password: hashPassword,
       username: username,
@@ -21,7 +22,7 @@ export const createAdmin = async (req, res) => {
 
 export const updateAdmin = async (req, res) => {
   const { id } = req.params;
-  const { name, password, username } = req.body;
+  const { name, password, username, email } = req.body;
   const salt = await bcrypt.genSalt();
   const hashPassword = await bcrypt.hash(password, salt);
 
@@ -74,18 +75,18 @@ export const getSingleDataAdmin = async (req, res) => {
 };
 
 export const Login = async (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
   try {
-    const findAdmin = await Admin.findOne({ username: username });
+    const findAdmin = await Admin.findOne({ email: email });
     if (!findAdmin) return res.status(404).json({ message: "Data Tidak Ditemukan" });
     const match = await bcrypt.compare(password, findAdmin.password);
     if (!match) return res.status(400).json({ message: "Password Salah" });
 
     const id = findAdmin._id;
-    const token = jwt.sign({ id, username }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id, email }, process.env.JWT_SECRET, {
       expiresIn: "1d",
     });
-    const refreshtoken = jwt.sign({ id, username }, process.env.REFRESH_SECRET, {
+    const refreshtoken = jwt.sign({ id, email }, process.env.REFRESH_SECRET, {
       expiresIn: "1d",
     });
 
@@ -107,7 +108,7 @@ export const Login = async (req, res) => {
     res.status(200).json({
       message: "sukses",
       data: {
-        username: findAdmin.username,
+        email: findAdmin.email,
         name: findAdmin.name,
         token: token,
       },
